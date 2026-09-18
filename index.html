@@ -50,12 +50,14 @@ a:hover{color:var(--color-accent)}
 <body>
 <div style="background: var(--color-bg); color: var(--color-text);">
 
-  <nav class="nav" style="padding-inline: clamp(20px, 5vw, 72px);">
+  <nav class="nav" style="padding-inline: clamp(20px, 5vw, 72px); display: grid; grid-template-columns: 1fr auto 1fr; gap: 0;">
     <span class="nav-brand">NetBit</span>
-    <a href="#productos">Productos</a>
-    <a href="#proceso">Cómo trabajamos</a>
-    <a href="#nosotros">Nosotros</a>
-    <a class="btn btn-primary" href="https://wa.me/593939216689" style="margin-left: auto;">Escríbenos</a>
+    <div style="display: flex; align-items: center; gap: 28px; justify-content: center;">
+      <a href="#productos">Productos</a>
+      <a href="#proceso">Cómo trabajamos</a>
+      <a href="#nosotros">Nosotros</a>
+    </div>
+    <a class="btn btn-primary" href="https://wa.me/593939216689" style="justify-self: end;">Escríbenos</a>
   </nav>
 
   <section style="background: var(--color-accent-100);">
