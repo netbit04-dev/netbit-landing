@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-86b38920-346e-4982-bfe8-69562111c9c8/styles.css">
+<script src="_ds/modernist-86b38920-346e-4982-bfe8-69562111c9c8/_ds_bundle.js"></script>
+<script src="./image-slot.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Hanken+Grotesk:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --color-accent: #2258e6;
+    --color-accent-100: #e6ecfd; --color-accent-200: #c3d2fa; --color-accent-300: #9db4f6;
+    --color-accent-400: #6287ef; --color-accent-500: #2258e6; --color-accent-600: #1c48bd;
+    --color-accent-700: #163893; --color-accent-800: #102969; --color-accent-900: #0a1b45;
+    --color-accent-2: #2258e6;
+    --color-accent-2-100: #e6ecfd; --color-accent-2-200: #c3d2fa; --color-accent-2-300: #9db4f6;
+    --color-accent-2-400: #6287ef; --color-accent-2-500: #2258e6; --color-accent-2-600: #1c48bd;
+    --color-accent-2-700: #163893; --color-accent-2-800: #102969; --color-accent-2-900: #0a1b45;
+    --font-heading: "Poppins", system-ui, sans-serif;
+    --font-heading-weight: 700;
+    --font-body: "Hanken Grotesk", system-ui, sans-serif;
+    --font-mono: "DM Mono", ui-monospace, monospace;
+  }
+  :root { --radius-md: 14px; }
+  html { scroll-behavior: smooth; }
+  .btn { border-radius: 10px; }
+  image-slot { border-radius: 14px; overflow: hidden; }
+  body { margin: 0; text-wrap: pretty; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); }
+  a { color: var(--color-accent-700); text-decoration: none; }
+  a:hover { color: var(--color-accent); }
+  .nav-brand, h1, h2, h3 { font-family: var(--font-heading); }
+  .btn, .nav a { font-family: var(--font-body); }
+  .mono { font-family: var(--font-body); font-weight: 600; letter-spacing: 0.1em; }
+  @media (max-width: 900px) {
+    .split { grid-template-columns: 1fr !important; }
+    .cards { grid-template-columns: 1fr 1fr !important; }
+    .steps { grid-template-columns: 1fr !important; }
+    .footcols { grid-template-columns: 1fr 1fr !important; }
+  }
+  @media (max-width: 560px) {
+    .cards { grid-template-columns: 1fr !important; }
+  }
+</style>
+</helmet>
+
+<div style="background: var(--color-bg); color: var(--color-text);">
+
+  <nav class="nav" style="padding-inline: clamp(20px, 5vw, 72px);">
+    <span class="nav-brand">NetBit</span>
+    <a href="#productos">Productos</a>
+    <a href="#proceso">Cómo trabajamos</a>
+    <a href="#nosotros">Nosotros</a>
+    <a class="btn btn-primary" href="{{ waHref }}" style="margin-left: auto;">Escríbenos</a>
+  </nav>
+
+  <section style="background: var(--color-accent-100);">
+    <div class="split" style="max-width: 1200px; margin: 0 auto; padding: 84px clamp(20px, 5vw, 72px); display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 48px clamp(32px, 5vw, 80px); align-items: center;">
+      <div>
+        <span class="mono" style="display: block; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin: 0 0 18px;">Ingeniería informática — Santa Elena, Ecuador</span>
+        <h1 style="font-weight: var(--font-heading-weight); font-size: clamp(38px, 5vw, 64px); line-height: 1.08; letter-spacing: -0.02em; margin: 0;">Tres sistemas listos para tu negocio.</h1>
+        <p style="font-size: 17px; line-height: 28px; max-width: 52ch; margin: 28px 0 0;">Software ya construido y en funcionamiento: finanzas personales, control de ventas y control electoral. Se instalan, se configuran y empiezan a trabajar.</p>
+        <div style="display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: 32px;">
+          <a class="btn btn-primary" href="#productos">Ver los productos</a>
+          <a class="btn btn-ghost" href="{{ telHref }}">Llamar {{ telefono }}</a>
+        </div>
+      </div>
+      <div style="background: var(--color-bg); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow-md);">
+        <image-slot id="nb-hero" shape="rect" style="width: 100%; aspect-ratio: 4 / 3;" placeholder="Ilustración o captura del sistema"></image-slot>
+      </div>
+    </div>
+  </section>
+
+  <section id="productos" style="max-width: 1200px; margin: 0 auto; padding: 84px clamp(20px, 5vw, 72px) 70px;">
+    <span class="mono" style="display: block; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin: 0 0 18px;">Productos</span>
+    <h2 style="font-weight: var(--font-heading-weight); font-size: clamp(28px, 3.2vw, 40px); line-height: 1.12; letter-spacing: -0.015em; margin: 0; max-width: 24ch;">Sistemas que ya están funcionando</h2>
+
+    <div class="cards" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 48px;">
+      <div style="background: var(--color-bg); padding: 32px; border-radius: 16px; box-shadow: var(--shadow-sm);">
+        <div style="width: 52px; height: 52px; background: var(--color-accent); border-radius: 14px; display: grid; place-items: center;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f3f2f2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 7V4H5a2 2 0 0 0 0 4h15v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6"/><path d="M16 12h3"/></svg>
+        </div>
+        <h3 style="font-weight: var(--font-heading-weight); font-size: 24px; line-height: 1.2; letter-spacing: -0.01em; margin: 24px 0 0;">Mi Bolsillo</h3>
+        <p class="mono" style="font-size: 12px; line-height: 16px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin: 10px 0 0;">Gestión financiera</p>
+        <p style="font-size: 15.5px; line-height: 27px; margin: 16px 0 0;">Ingresos y gastos, presupuestos por categoría y reportes de cierre de mes. Para saber dónde está el dinero antes de decidir.</p>
+      </div>
+      <div style="background: var(--color-bg); padding: 32px; border-radius: 16px; box-shadow: var(--shadow-sm);">
+        <div style="width: 52px; height: 52px; background: var(--color-accent); border-radius: 14px; display: grid; place-items: center;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f3f2f2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h2l2.4 12h10.2L20 7H6"/><path d="M9 20h.01"/><path d="M17 20h.01"/></svg>
+        </div>
+        <h3 style="font-weight: var(--font-heading-weight); font-size: 24px; line-height: 1.2; letter-spacing: -0.01em; margin: 24px 0 0;">Mi Negocio</h3>
+        <p class="mono" style="font-size: 12px; line-height: 16px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin: 10px 0 0;">Control de ventas</p>
+        <p style="font-size: 15.5px; line-height: 27px; margin: 16px 0 0;">Ventas del día, inventario, clientes y cierre de caja en un solo lugar. Para negocios que hoy llevan las cuentas en cuaderno.</p>
+      </div>
+      <div style="background: var(--color-bg); padding: 32px; border-radius: 16px; box-shadow: var(--shadow-sm);">
+        <div style="width: 52px; height: 52px; background: var(--color-accent); border-radius: 14px; display: grid; place-items: center;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f3f2f2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M5 16 12 4l7 12H5z"/><path d="M9 13h6"/></svg>
+        </div>
+        <h3 style="font-weight: var(--font-heading-weight); font-size: 24px; line-height: 1.2; letter-spacing: -0.01em; margin: 24px 0 0;">SCRUTA</h3>
+        <p class="mono" style="font-size: 12px; line-height: 16px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin: 10px 0 0;">Control electoral</p>
+        <p style="font-size: 15.5px; line-height: 27px; margin: 16px 0 0;">Registro de actas, conteo por junta y consolidado en tiempo real. Resultados propios y verificables la misma noche.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="proceso" style="background: var(--color-accent-100);">
+    <div class="split" style="max-width: 1200px; margin: 0 auto; padding: 84px clamp(20px, 5vw, 72px); display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 48px clamp(32px, 5vw, 80px); align-items: center;">
+      <div style="background: var(--color-bg); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow-md);">
+        <image-slot id="nb-proceso" shape="rect" style="width: 100%; aspect-ratio: 1 / 1;" placeholder="Ilustración del proceso"></image-slot>
+      </div>
+      <div>
+        <span class="mono" style="display: block; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin: 0 0 18px;">Cómo trabajamos</span>
+        <h2 style="font-weight: var(--font-heading-weight); font-size: clamp(28px, 3.2vw, 40px); line-height: 1.12; letter-spacing: -0.015em; margin: 0;">De la llamada al sistema andando</h2>
+        <div class="steps" style="display: grid; gap: 0; margin-top: 36px;">
+          <div style="display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 20px; padding: 22px 0; border-top: 1px solid var(--color-accent-200);">
+            <span class="mono" style="font-size: 15px; color: var(--color-accent-700);">01</span>
+            <div>
+              <p style="font-family: var(--font-heading); font-weight: 600; font-size: 17px; line-height: 24px; margin: 0;">Contacto</p>
+              <p style="font-size: 15px; line-height: 26px; margin: 6px 0 0;">Nos cuentas cómo trabajas hoy y qué necesitas resolver.</p>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 20px; padding: 22px 0; border-top: 1px solid var(--color-accent-200);">
+            <span class="mono" style="font-size: 15px; color: var(--color-accent-700);">02</span>
+            <div>
+              <p style="font-family: var(--font-heading); font-weight: 600; font-size: 17px; line-height: 24px; margin: 0;">Demostración</p>
+              <p style="font-size: 15px; line-height: 26px; margin: 6px 0 0;">Te mostramos el sistema funcionando con datos reales de ejemplo.</p>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 20px; padding: 22px 0; border-top: 1px solid var(--color-accent-200);">
+            <span class="mono" style="font-size: 15px; color: var(--color-accent-700);">03</span>
+            <div>
+              <p style="font-family: var(--font-heading); font-weight: 600; font-size: 17px; line-height: 24px; margin: 0;">Configuración</p>
+              <p style="font-size: 15px; line-height: 26px; margin: 6px 0 0;">Cargamos tus categorías, productos o juntas y dejamos todo listo.</p>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 20px; padding: 22px 0; border-top: 1px solid var(--color-accent-200);">
+            <span class="mono" style="font-size: 15px; color: var(--color-accent-700);">04</span>
+            <div>
+              <p style="font-family: var(--font-heading); font-weight: 600; font-size: 17px; line-height: 24px; margin: 0;">Puesta en marcha</p>
+              <p style="font-size: 15px; line-height: 26px; margin: 6px 0 0;">Capacitación corta al equipo y acompañamiento las primeras semanas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="nosotros" class="split" style="max-width: 1200px; margin: 0 auto; padding: 84px clamp(20px, 5vw, 72px); display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 48px clamp(32px, 5vw, 80px); align-items: center;">
+    <div>
+      <span class="mono" style="display: block; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin: 0 0 18px;">Sobre NetBit</span>
+      <h2 style="font-weight: var(--font-heading-weight); font-size: clamp(28px, 3.2vw, 40px); line-height: 1.12; letter-spacing: -0.015em; margin: 0; max-width: 26ch;">Desarrollo propio, soporte cercano</h2>
+      <p style="font-size: 16px; line-height: 28px; margin: 24px 0 0; max-width: 52ch;">NetBit Ingeniería Informática desarrolla y mantiene sus propios sistemas desde Santa Elena, Ecuador. Cada producto se entrega instalado, configurado y con soporte directo — sin intermediarios ni licencias de terceros.</p>
+      <div style="display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: 28px;">
+        <a class="btn btn-ghost" href="{{ waHref }}">Escribir por WhatsApp</a>
+      </div>
+    </div>
+    <figure class="grayscale" style="margin: 0; border-radius: 14px; overflow: hidden; box-shadow: var(--shadow-md);">
+      <image-slot id="nb-equipo" shape="rect" style="width: 100%; aspect-ratio: 4 / 3;" placeholder="Foto del equipo o del trabajo"></image-slot>
+    </figure>
+  </section>
+
+  <section style="background: var(--color-accent); color: var(--color-bg);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 72px clamp(20px, 5vw, 72px); display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: space-between;">
+      <h3 style="font-weight: var(--font-heading-weight); font-size: clamp(26px, 3vw, 38px); line-height: 1.12; letter-spacing: -0.015em; margin: 0; max-width: 22ch;">¿Listo para empezar? Los sistemas ya existen.</h3>
+      <a class="btn" href="{{ waHref }}" style="background: var(--color-bg); color: var(--color-accent-700); border: 2px solid var(--color-bg);">Escribir al {{ telefono }}</a>
+    </div>
+  </section>
+
+  <footer style="background: var(--color-text); color: var(--color-bg);">
+    <div class="footcols" style="max-width: 1200px; margin: 0 auto; padding: 64px clamp(20px, 5vw, 72px) 40px; display: grid; grid-template-columns: minmax(0, 2fr) repeat(3, minmax(0, 1fr)); gap: 40px clamp(24px, 4vw, 64px);">
+      <div>
+        <p style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 22px; margin: 0;">NetBit</p>
+        <p style="font-size: 14px; line-height: 26px; margin: 12px 0 0; opacity: 0.8;">Ingeniería Informática<br />Santa Elena, Ecuador</p>
+      </div>
+      <div>
+        <p class="mono" style="font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 14px; opacity: 0.7;">Productos</p>
+        <p style="font-size: 14px; line-height: 28px; margin: 0;">Mi Bolsillo<br />Mi Negocio<br />SCRUTA</p>
+      </div>
+      <div>
+        <p class="mono" style="font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 14px; opacity: 0.7;">Página</p>
+        <p style="font-size: 14px; line-height: 28px; margin: 0;"><a href="#productos" style="color: var(--color-bg);">Productos</a><br /><a href="#proceso" style="color: var(--color-bg);">Cómo trabajamos</a><br /><a href="#nosotros" style="color: var(--color-bg);">Nosotros</a></p>
+      </div>
+      <div>
+        <p class="mono" style="font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 14px; opacity: 0.7;">Contacto</p>
+        <p style="font-size: 14px; line-height: 28px; margin: 0;"><a href="{{ waHref }}" style="color: var(--color-bg);">WhatsApp {{ telefono }}</a><br /><a href="mailto:contacto@netbitec.app" style="color: var(--color-bg);">contacto@netbitec.app</a></p>
+      </div>
+    </div>
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 72px) 40px;">
+      <p class="mono" style="font-size: 12px; margin: 0; opacity: 0.65;">© 2026 NetBit Ingeniería Informática</p>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;telefono&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;0939216689&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const telefono = this.props.telefono ?? "0939216689";
+    const digits = telefono.replace(/\D/g, "");
+    const intl = digits.startsWith("0") ? "593" + digits.slice(1) : digits;
+    return { telefono, telHref: "tel:+" + intl, waHref: "https://wa.me/" + intl };
+  }
+}
+</script>
+</body>
+</html>
