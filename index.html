@@ -40,6 +40,19 @@ a:hover{color:var(--color-accent)}
 .btn:focus-visible,a:focus-visible{outline:2px solid var(--color-accent);outline-offset:2px}
 .mono{font-family:var(--font-body);font-weight:600;letter-spacing:.1em}
 .grayscale img{filter:grayscale(1)}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.16,.8,.3,1),transform .7s cubic-bezier(.16,.8,.3,1)}
+.reveal.is-visible{opacity:1;transform:none}
+.cards .reveal:nth-child(2){transition-delay:.12s}
+.cards .reveal:nth-child(3){transition-delay:.24s}
+.steps .reveal:nth-child(2){transition-delay:.08s}
+.steps .reveal:nth-child(3){transition-delay:.16s}
+.steps .reveal:nth-child(4){transition-delay:.24s}
+.cards>div{transition:transform .25s ease}
+.cards>div:hover{transform:translateY(-6px)}
+@media (prefers-reduced-motion: reduce){
+  .reveal{transition:none;opacity:1;transform:none}
+  .cards>div{transition:none}
+}
 @media (max-width:900px){
   .split{grid-template-columns:1fr !important}
   .cards{grid-template-columns:1fr 1fr !important}
@@ -72,7 +85,7 @@ a:hover{color:var(--color-accent)}
           <a class="btn btn-ghost">Cómo funciona</a>
         </div>
       </div>
-      <div style="display:flex; align-items:center; justify-content:center;">
+      <div class="reveal" style="display:flex; align-items:center; justify-content:center;">
         <img src="img/hero-dashboard.png" alt="Panel de control de los sistemas NetBit" style="width:100%; height:auto; max-width:480px;">
       </div>
     </div>
@@ -83,7 +96,7 @@ a:hover{color:var(--color-accent)}
     <h2 style="font-weight: var(--font-heading-weight); font-size: clamp(28px, 3.2vw, 40px); line-height: 1.12; letter-spacing: -0.015em; margin: 0; max-width: 24ch;">Cada sistema para quien lo necesite</h2>
 
     <div class="cards" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 48px;">
-      <div style="background: var(--color-bg); padding: 32px; border-radius: 16px; box-shadow: var(--shadow-sm);">
+      <div class="reveal" style="background: var(--color-bg); padding: 32px; border-radius: 16px; box-shadow: var(--shadow-sm);">
         <div style="width: 52px; height: 52px; background: var(--color-accent); border-radius: 14px; display: grid; place-items: center;">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f3f2f2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 7V4H5a2 2 0 0 0 0 4h15v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6"/><path d="M16 12h3"/></svg>
         </div>
@@ -91,7 +104,7 @@ a:hover{color:var(--color-accent)}
         <p class="mono" style="font-size: 12px; line-height: 16px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin: 10px 0 0;">Gestión financiera</p>
         <p style="font-size: 15.5px; line-height: 27px; margin: 16px 0 0;">Ingresos y gastos, presupuestos por categoría y reportes de cierre de mes. Para saber dónde está el dinero antes de decidir.</p>
       </div>
-      <div style="background: var(--color-bg); padding: 32px; border-radius: 16px; box-shadow: var(--shadow-sm);">
+      <div class="reveal" style="background: var(--color-bg); padding: 32px; border-radius: 16px; box-shadow: var(--shadow-sm);">
         <div style="width: 52px; height: 52px; background: var(--color-accent); border-radius: 14px; display: grid; place-items: center;">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f3f2f2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h2l2.4 12h10.2L20 7H6"/><path d="M9 20h.01"/><path d="M17 20h.01"/></svg>
         </div>
@@ -99,7 +112,7 @@ a:hover{color:var(--color-accent)}
         <p class="mono" style="font-size: 12px; line-height: 16px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin: 10px 0 0;">Control de ventas</p>
         <p style="font-size: 15.5px; line-height: 27px; margin: 16px 0 0;">Ventas del día, inventario, clientes y cierre de caja en un solo lugar. Para negocios que hoy llevan las cuentas en cuaderno.</p>
       </div>
-      <div style="background: var(--color-bg); padding: 32px; border-radius: 16px; box-shadow: var(--shadow-sm);">
+      <div class="reveal" style="background: var(--color-bg); padding: 32px; border-radius: 16px; box-shadow: var(--shadow-sm);">
         <div style="width: 52px; height: 52px; background: var(--color-accent); border-radius: 14px; display: grid; place-items: center;">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f3f2f2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M5 16 12 4l7 12H5z"/><path d="M9 13h6"/></svg>
         </div>
@@ -112,35 +125,35 @@ a:hover{color:var(--color-accent)}
 
   <section id="proceso" style="background: var(--color-accent-100);">
     <div class="split" style="max-width: 1200px; margin: 0 auto; padding: 84px clamp(20px, 5vw, 72px); display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 48px clamp(32px, 5vw, 80px); align-items: center;">
-      <div style="background: var(--color-bg); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow-md);">
-        <div style="width:100%;aspect-ratio:1 / 1;background:#e6e5e5;display:grid;place-items:center;color:#6b6968;font-size:13px">Ilustración del proceso</div>
+      <div class="reveal" style="display:flex; align-items:center; justify-content:center;">
+        <img src="img/laptop-login.png" alt="Ilustración del proceso de acceso al sistema" style="width:100%; height:auto; max-width:420px;">
       </div>
       <div>
         <span class="mono" style="display: block; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin: 0 0 18px;">Cómo trabajamos</span>
         <h2 style="font-weight: var(--font-heading-weight); font-size: clamp(28px, 3.2vw, 40px); line-height: 1.12; letter-spacing: -0.015em; margin: 0;">Entras por la web y empiezas</h2>
         <div class="steps" style="display: grid; gap: 0; margin-top: 36px;">
-          <div style="display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 20px; padding: 22px 0; border-top: 1px solid var(--color-accent-200);">
+          <div class="reveal" style="display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 20px; padding: 22px 0; border-top: 1px solid var(--color-accent-200);">
             <span class="mono" style="font-size: 15px; color: var(--color-accent-700);">01</span>
             <div>
               <p style="font-family: var(--font-heading); font-weight: 600; font-size: 17px; line-height: 24px; margin: 0;">Accedes a la URL</p>
               <p style="font-size: 15px; line-height: 26px; margin: 6px 0 0;">Abres la dirección del sistema en el navegador. No hay descargas ni instalaciones.</p>
             </div>
           </div>
-          <div style="display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 20px; padding: 22px 0; border-top: 1px solid var(--color-accent-200);">
+          <div class="reveal" style="display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 20px; padding: 22px 0; border-top: 1px solid var(--color-accent-200);">
             <span class="mono" style="font-size: 15px; color: var(--color-accent-700);">02</span>
             <div>
               <p style="font-family: var(--font-heading); font-weight: 600; font-size: 17px; line-height: 24px; margin: 0;">Creas tu usuario</p>
               <p style="font-size: 15px; line-height: 26px; margin: 6px 0 0;">Te registras con tu correo electrónico y entras a tu propio espacio de trabajo.</p>
             </div>
           </div>
-          <div style="display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 20px; padding: 22px 0; border-top: 1px solid var(--color-accent-200);">
+          <div class="reveal" style="display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 20px; padding: 22px 0; border-top: 1px solid var(--color-accent-200);">
             <span class="mono" style="font-size: 15px; color: var(--color-accent-700);">03</span>
             <div>
               <p style="font-family: var(--font-heading); font-weight: 600; font-size: 17px; line-height: 24px; margin: 0;">Configuras lo tuyo</p>
               <p style="font-size: 15px; line-height: 26px; margin: 6px 0 0;">Cargas tus categorías, productos o juntas. Te ayudamos si lo necesitas.</p>
             </div>
           </div>
-          <div style="display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 20px; padding: 22px 0; border-top: 1px solid var(--color-accent-200);">
+          <div class="reveal" style="display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 20px; padding: 22px 0; border-top: 1px solid var(--color-accent-200);">
             <span class="mono" style="font-size: 15px; color: var(--color-accent-700);">04</span>
             <div>
               <p style="font-family: var(--font-heading); font-weight: 600; font-size: 17px; line-height: 24px; margin: 0;">Trabajas y consultas</p>
@@ -153,7 +166,7 @@ a:hover{color:var(--color-accent)}
   </section>
 
   <section id="nosotros" class="split" style="max-width: 1200px; margin: 0 auto; padding: 84px clamp(20px, 5vw, 72px); display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 48px clamp(32px, 5vw, 80px); align-items: center;">
-    <div>
+    <div class="reveal">
       <span class="mono" style="display: block; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin: 0 0 18px;">Sobre NetBit</span>
       <h2 style="font-weight: var(--font-heading-weight); font-size: clamp(28px, 3.2vw, 40px); line-height: 1.12; letter-spacing: -0.015em; margin: 0; max-width: 26ch;">Desarrollo propio, soporte cercano</h2>
       <p style="font-size: 16px; line-height: 28px; margin: 24px 0 0; max-width: 52ch;">NetBit Ingenieros Informáticos desarrolla y mantiene su propio software web desde La Libertad, Ecuador. Todo funciona en el navegador, con actualizaciones incluidas y soporte directo. Sin instalaciones ni licencias de terceros.</p>
@@ -161,7 +174,7 @@ a:hover{color:var(--color-accent)}
         
       </div>
     </div>
-    <figure class="grayscale" style="margin: 0; border-radius: 14px; overflow: hidden; box-shadow: var(--shadow-md);">
+    <figure class="grayscale reveal" style="margin: 0; border-radius: 14px; overflow: hidden; box-shadow: var(--shadow-md);">
       <div style="width:100%;aspect-ratio:4 / 3;background:#e6e5e5;display:grid;place-items:center;color:#6b6968;font-size:13px">Foto del equipo o del trabajo</div>
     </figure>
   </section>
@@ -202,5 +215,23 @@ a:hover{color:var(--color-accent)}
   </a>
 
 </div>
+<script>
+(function(){
+  var items = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){
+    items.forEach(function(el){ el.classList.add('is-visible'); });
+    return;
+  }
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  items.forEach(function(el){ observer.observe(el); });
+})();
+</script>
 </body>
 </html>
