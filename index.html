@@ -48,7 +48,7 @@ a:hover{color:var(--color-accent)}
 </style>
 </head>
 <body>
-<div style="background: var(--color-bg); color: var(--color-text);">
+<div id="top" style="background: var(--color-bg); color: var(--color-text);">
 
   <nav class="nav" style="padding-inline: clamp(20px, 5vw, 72px); display: grid; grid-template-columns: 1fr auto 1fr; gap: 0;">
     <span class="nav-brand">NetBit</span>
@@ -195,6 +195,10 @@ a:hover{color:var(--color-accent)}
       <p class="mono" style="font-size: 12px; margin: 0; opacity: 0.65;">© 2026 NetBit Ingeniería Informática</p>
     </div>
   </footer>
+
+  <a href="#top" aria-label="Volver arriba" style="position: fixed; right: 24px; bottom: 24px; width: 48px; height: 48px; border-radius: 50%; background: var(--color-accent); box-shadow: var(--shadow-lg); display: grid; place-items: center; z-index: 50;">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f3f2f2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+  </a>
 
 </div>
 </body>
